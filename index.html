@@ -17,11 +17,22 @@
 
   <!-- App Script -->
   <script type="text/babel">
-    // PandaAssistantLanding component with Foodpanda colors
+    // Enhanced PandaAssistantLanding component using Foodpanda colors.
     const PandaAssistantLanding = () => (
       <div className="font-sans text-[#222222] bg-[#fafbfd] min-h-screen w-full flex flex-col">
-        {/* Hero Section */}
-        <section className="relative flex flex-col justify-center items-center text-center px-6 pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden text-white bg-gradient-to-b from-[#d70f64] via-[#e94a8a] to-[#d70f64]">
+        {/* Sticky Navigation Bar */}
+        <nav className="sticky top-0 z-20 bg-[#fafbfd] border-b border-[#fde8ec] px-6 py-4 flex justify-between items-center">
+          <div className="text-[#d70f64] font-bold text-lg">熊貓助手</div>
+          <div className="hidden sm:flex space-x-4 text-sm sm:text-base">
+            <a href="#features" className="text-[#444] hover:text-[#d70f64]">功能</a>
+            <a href="#workflow" className="text-[#444] hover:text-[#d70f64]">流程</a>
+            <a href="#testimonials" className="text-[#444] hover:text-[#d70f64]">好評</a>
+            <a href="#faq" className="text-[#444] hover:text-[#d70f64]">FAQ</a>
+          </div>
+        </nav>
+
+        {/* Hero Section with pink gradient background */}
+        <section className="relative flex flex-col justify-center items-center text-center px-6 pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden text-white bg-gradient-to-b from-[#d70f64] via-[#e94a8a] to-[#d70f64]">
           {/* Pink glow background */}
           <div aria-hidden className="absolute inset-0 -z-10 flex justify-center items-start">
             <div className="w-96 h-96 bg-gradient-to-br from-[#ff80ab]/30 via-[#ffa3c3]/20 to-[#e94a8a]/20 rounded-full blur-3xl"></div>
@@ -32,8 +43,11 @@
           <p className="mt-4 max-w-md text-base sm:text-lg md:text-xl text-gray-200">
             HUD 懸浮窗直接夾單、精準拆分費用，外送員的專屬神隊友 🧾⚡
           </p>
-          <a href="#" className="mt-8 inline-block rounded-full px-8 py-3 text-base sm:text-lg font-semibold bg-gradient-to-r from-[#d70f64] to-[#ff2b85] hover:to-[#e94a8a] focus:outline-none focus:ring-4 focus:ring-[#e94a8a] transition-shadow shadow-lg shadow-[#d70f64]/50">
-            立即下載 APK（V1.3.3）
+          <a
+            href="#"
+            className="mt-8 inline-block rounded-full px-8 py-3 text-base sm:text-lg font-semibold bg-gradient-to-r from-[#d70f64] to-[#ff2b85] hover:to-[#e94a8a] focus:outline-none focus:ring-4 focus:ring-[#e94a8a] transition-shadow shadow-lg shadow-[#d70f64]/50"
+          >
+            立即下載 APK
           </a>
           {/* Placeholder for App screenshot */}
           <div className="mt-12 w-full max-w-sm sm:max-w-md md:max-w-lg">
@@ -46,14 +60,26 @@
         </section>
 
         {/* Features Section */}
-        <section className="px-6 py-12 md:py-16 bg-[#fafbfd]">
+        <section id="features" className="px-6 py-12 md:py-16 bg-[#fafbfd]">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8 text-[#d70f64]">核心功能</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1 */}
+            {/* Card 1: HUD 懸浮窗 */}
             <div className="group bg-white border border-[#fde8ec] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4 text-[#d70f64] text-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9.75H18a2.25 2.25 0 012.25 2.25v6.75A2.25 2.25 0 0118 21H8.25A2.25 2.25 0 016 18.75V16.5M8.25 3H15a2.25 2.25 0 012.25 2.25V9M8.25 3A2.25 2.25 0 006 5.25v6.75A2.25 2.25 0 008.25 14.25H15M8.25 3h6.75" />
+                {/* Icon: overlapping squares */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 9.75H18a2.25 2.25 0 012.25 2.25v6.75A2.25 2.25 0 0118 21H8.25A2.25 2.25 0 016 18.75V16.5M8.25 3H15a2.25 2.25 0 012.25 2.25V9M8.25 3A2.25 2.25 0 006 5.25v6.75A2.25 2.25 0 008.25 14.25H15M8.25 3h6.75"
+                  />
                 </svg>
                 <span className="ml-3 text-xl font-semibold">HUD 懸浮窗操作</span>
               </div>
@@ -61,12 +87,28 @@
                 跨 App 快速輸入金額與單數，+50 / +100 快捷鍵讓你 2~3 下完成夾單，不用再切來切去。
               </p>
             </div>
-            {/* Card 2 */}
+            {/* Card 2: 精準計費與防呆 */}
             <div className="group bg-white border border-[#fde8ec] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4 text-[#d70f64] text-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3h10.5A2.25 2.25 0 0119.5 5.25v13.5A2.25 2.25 0 0117.25 21H6.75A2.25 2.25 0 014.5 18.75V5.25A2.25 2.25 0 016.75 3z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5v.008h.008V7.5H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12M15 7.5v.008h.008V7.5H15zm0 3v.008h.008v-.016H15zm0 3v.008h.008v-.016H15M9 7.5v.008h.008V7.5H9zm0 3v.008h.008v-.016H9zm0 3v.008h.008v-.016H9" />
+                {/* Icon: calculator */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6.75 3h10.5A2.25 2.25 0 0119.5 5.25v13.5A2.25 2.25 0 0117.25 21H6.75A2.25 2.25 0 014.5 18.75V5.25A2.25 2.25 0 016.75 3z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 7.5v.008h.008V7.5H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12M15 7.5v.008h.008V7.5H15zm0 3v.008h.008v-.016H15zm0 3v.008h.008v-.016H15M9 7.5v.008h.008V7.5H9zm0 3v.008h.008v-.016H9zm0 3v.008h.008v-.016H9"
+                  />
                 </svg>
                 <span className="ml-3 text-xl font-semibold">精準計費與防呆</span>
               </div>
@@ -74,10 +116,18 @@
                 內建強大的計算機，自動拆分多單並計算找零，嚴格防呆，避免誤觸送出錯誤金額，保障你的收入。
               </p>
             </div>
-            {/* Card 3 */}
+            {/* Card 3: 戰績追蹤 */}
             <div className="group bg-white border border-[#fde8ec] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4 text-[#d70f64] text-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
+                {/* Icon: chart */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 17V10m4.5 7V7m4.5 10V13" />
                 </svg>
@@ -90,52 +140,101 @@
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="px-6 py-12 md:py-16 bg-gradient-to-b from-[#fafbfd] via-[#f9e9f0] to-[#f7d8e5]">
+        {/* How It Works Section */}
+        <section id="workflow" className="px-6 py-12 md:py-16 bg-gradient-to-b from-[#fafbfd] via-[#f9e9f0] to-[#f7d8e5]">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8 text-[#d70f64]">使用流程</h2>
           <div className="flex flex-col sm:flex-row justify-center items-start gap-8">
+            {/* Step 1 */}
             <div className="flex-1 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">1</div>
+              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">
+                1
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#222]">收到訂單</h3>
-              <p className="text-[#444444] text-sm">一旦接單，開啟熊貓助手的懸浮窗準備操作。</p>
+              <p className="text-[#444444] text-sm">
+                一旦接單，開啟熊貓助手的懸浮窗準備操作。
+              </p>
             </div>
+            {/* Step 2 */}
             <div className="flex-1 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">2</div>
+              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">
+                2
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#222]">點選快捷鍵</h3>
-              <p className="text-[#444444] text-sm">選擇 +50 / +100 等快捷鍵快速輸入金額與單數，省時又方便。</p>
+              <p className="text-[#444444] text-sm">
+                選擇 +50 / +100 等快捷鍵快速輸入金額與單數，省時又方便。
+              </p>
             </div>
+            {/* Step 3 */}
             <div className="flex-1 flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">3</div>
+              <div className="w-12 h-12 rounded-full bg-[#d70f64] flex items-center justify-center text-white font-bold text-lg mb-4">
+                3
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#222]">自動計算紀錄</h3>
-              <p className="text-[#444444] text-sm">系統自動幫你算好找零並儲存紀錄，立即查看戰績，輕鬆達標！</p>
+              <p className="text-[#444444] text-sm">
+                系統自動幫你算好找零並儲存紀錄，立即查看戰績，輕鬆達標！
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="px-6 py-12 md:py-16 bg-[#fafbfd]">
+        {/* Testimonials Section */}
+        <section id="testimonials" className="px-6 py-12 md:py-16 bg-[#fafbfd]">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8 text-[#d70f64]">外送員怎麼說</h2>
           <div className="space-y-6 max-w-xl mx-auto">
+            {/* Testimonial 1 */}
             <div className="bg-[#fdf2f7] border border-[#fde8ec] rounded-2xl p-4 shadow-md">
-              <p className="text-[#444444] leading-relaxed">「以前每次接單都在算錢，熊貓助手讓我 1 秒輸入金額，瞬間提升效率，再也不怕算錯！」</p>
+              <p className="text-[#444444] leading-relaxed">
+                「以前每次接單都在算錢，熊貓助手讓我 1 秒輸入金額，瞬間提升效率，再也不怕算錯！」
+              </p>
               <div className="mt-2 flex items-center justify-end">
                 <span className="text-sm font-medium text-[#d70f64]">阿輝</span>
                 <span className="ml-2 text-xs text-[#888888]">外送員</span>
               </div>
             </div>
+            {/* Testimonial 2 */}
             <div className="bg-[#fdf2f7] border border-[#fde8ec] rounded-2xl p-4 shadow-md">
-              <p className="text-[#444444] leading-relaxed">「懸浮窗真的超方便，+50 / +100 快捷鍵讓我完全不需要切換 App，手速快很多。」</p>
+              <p className="text-[#444444] leading-relaxed">
+                「懸浮窗真的超方便，+50 / +100 快捷鍵讓我完全不需要切換 App，手速快很多。」
+              </p>
               <div className="mt-2 flex items-center justify-end">
                 <span className="text-sm font-medium text-[#d70f64]">小美</span>
                 <span className="ml-2 text-xs text-[#888888]">外送員</span>
               </div>
             </div>
+            {/* Testimonial 3 */}
             <div className="bg-[#fdf2f7] border border-[#fde8ec] rounded-2xl p-4 shadow-md">
-              <p className="text-[#444444] leading-relaxed">「每天都能看到自己的收入和進度，達標更有動力，完全是我的神隊友 📈」</p>
+              <p className="text-[#444444] leading-relaxed">
+                「每天都能看到自己的收入和進度，達標更有動力，完全是我的神隊友 📈」
+              </p>
               <div className="mt-2 flex items-center justify-end">
                 <span className="text-sm font-medium text-[#d70f64]">阿民</span>
                 <span className="ml-2 text-xs text-[#888888]">外送員</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="px-6 py-12 md:py-16 bg-[#fafbfd]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8 text-[#d70f64]">常見問題</h2>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <div className="rounded-lg bg-white border border-[#fde8ec] p-4 shadow-md">
+              <h3 className="font-semibold text-[#d70f64]">會不會被偵測？</h3>
+              <p className="text-[#444444] mt-1">
+                本應用程式僅輔助外送員記帳，不會干擾訂餐平台的運作。請安心使用。
+              </p>
+            </div>
+            <div className="rounded-lg bg-white border border-[#fde8ec] p-4 shadow-md">
+              <h3 className="font-semibold text-[#d70f64]">會不會很耗電？</h3>
+              <p className="text-[#444444] mt-1">
+                我們使用輕量化程式設計，對電池使用影響極小，可放心長時間開啟。
+              </p>
+            </div>
+            <div className="rounded-lg bg-white border border-[#fde8ec] p-4 shadow-md">
+              <h3 className="font-semibold text-[#d70f64]">資料會不會外傳？</h3>
+              <p className="text-[#444444] mt-1">
+                所有資料僅儲存在您的裝置上，我們不會收集或上傳任何個人資訊。
+              </p>
             </div>
           </div>
         </section>
@@ -145,7 +244,6 @@
           <div className="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto gap-y-2">
             <div>© 2026 熊貓助手</div>
             <div className="flex space-x-4">
-              <span>版本 V1.3.3</span>
               <a href="#" className="hover:text-[#d70f64] transition-colors">聯絡我們</a>
               <a href="#" className="hover:text-[#d70f64] transition-colors">問題回報</a>
             </div>
@@ -154,7 +252,7 @@
       </div>
     );
 
-    // Mount
+    // Mount the component
     ReactDOM.render(<PandaAssistantLanding />, document.getElementById('root'));
   </script>
 </body>
