@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>熊貓助手官方網站</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <!-- Babel for JSX compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <div id="root"></div>
+
+  <!-- App Script -->
+  <script type="text/babel">
+    // PandaAssistantLanding component definition
+    const PandaAssistantLanding = () => (
+      <div className="font-sans text-white bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen w-full flex flex-col">
+        {/* Hero Section */}
+        <section className="relative flex flex-col justify-center items-center text-center px-6 pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
+          {/* Glow background */}
+          <div aria-hidden className="absolute inset-0 -z-10 flex justify-center items-start">
+            <div className="w-96 h-96 bg-gradient-to-br from-green-500/30 via-emerald-400/20 to-green-600/20 rounded-full blur-3xl"></div>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-md">
+            接單不再手忙腳亂，熊貓助手幫你把錢算清楚
+          </h1>
+          <p className="mt-4 max-w-md text-base sm:text-lg md:text-xl text-gray-300">
+            HUD 懸浮窗直接夾單、精準拆分費用，外送員的專屬神隊友 🧾⚡
+          </p>
+          <a href="#" className="mt-8 inline-block rounded-full px-8 py-3 text-base sm:text-lg font-semibold bg-gradient-to-r from-green-500 to-emerald-400 hover:to-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-300 transition-shadow shadow-lg shadow-emerald-500/50">
+            立即下載 APK（V1.3.3）
+          </a>
+          {/* Placeholder for App screenshot */}
+          <div className="mt-12 w-full max-w-sm sm:max-w-md md:max-w-lg">
+            <div className="relative p-4 rounded-2xl bg-gray-800/60 border border-gray-700 shadow-inner shadow-black/30 backdrop-blur-md">
+              <div className="aspect-w-9 aspect-h-16 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-700 rounded-xl flex items-center justify-center text-gray-500">
+                <span>App 截圖展示區</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Features Section */}
+        <section className="px-6 py-12 md:py-16 bg-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">核心功能</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Card 1 */}
+            <div className="group bg-gray-800/70 border border-gray-700 rounded-2xl p-6 backdrop-blur-md shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4 text-green-400 text-3xl">
+                {/* Icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9.75H18a2.25 2.25 0 012.25 2.25v6.75A2.25 2.25 0 0118 21H8.25A2.25 2.25 0 016 18.75V16.5M8.25 3H15a2.25 2.25 0 012.25 2.25V9M8.25 3A2.25 2.25 0 006 5.25v6.75A2.25 2.25 0 008.25 14.25H15M8.25 3h6.75" />
+                </svg>
+                <span className="ml-3 text-xl font-semibold">HUD 懸浮窗操作</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                跨 App 快速輸入金額與單數，+50 / +100 快捷鍵讓你 2~3 下完成夾單，不用再切來切去。
+              </p>
+            </div>
+            {/* Card 2 */}
+            <div className="group bg-gray-800/70 border border-gray-700 rounded-2xl p-6 backdrop-blur-md shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4 text-green-400 text-3xl">
+                {/* Icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3h10.5A2.25 2.25 0 0119.5 5.25v13.5A2.25 2.25 0 0117.25 21H6.75A2.25 2.25 0 014.5 18.75V5.25A2.25 2.25 0 016.75 3z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5v.008h.008V7.5H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12zm0 3v.008h.008v-.016H12M15 7.5v.008h.008V7.5H15zm0 3v.008h.008v-.016H15zm0 3v.008h.008v-.016H15M9 7.5v.008h.008V7.5H9zm0 3v.008h.008v-.016H9zm0 3v.008h.008v-.016H9" />
+                </svg>
+                <span className="ml-3 text-xl font-semibold">精準計費與防呆</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                內建強大的計算機，自動拆分多單並計算找零，嚴格防呆，避免誤觸送出錯誤金額，保障你的收入。
+              </p>
+            </div>
+            {/* Card 3 */}
+            <div className="group bg-gray-800/70 border border-gray-700 rounded-2xl p-6 backdrop-blur-md shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4 text-green-400 text-3xl">
+                {/* Icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 17V10m4.5 7V7m4.5 10V13" />
+                </svg>
+                <span className="ml-3 text-xl font-semibold">戰績追蹤</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                清楚掌握每班次收入與目標達成率，讓你每天知道離達標還差多少，激發衝勁。
+              </p>
+            </div>
+          </div>
+        </section>
+        {/* How It Works Section */}
+        <section className="px-6 py-12 md:py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">使用流程</h2>
+          <div className="flex flex-col sm:flex-row justify-center items-start gap-8">
+            {/* Step 1 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-gray-900 font-bold text-lg mb-4">1</div>
+              <h3 className="text-xl font-semibold mb-2">收到訂單</h3>
+              <p className="text-gray-300 text-sm">一旦接單，開啟熊貓助手的懸浮窗準備操作。</p>
+            </div>
+            {/* Step 2 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-gray-900 font-bold text-lg mb-4">2</div>
+              <h3 className="text-xl font-semibold mb-2">點選快捷鍵</h3>
+              <p className="text-gray-300 text-sm">選擇 +50 / +100 等快捷鍵快速輸入金額與單數，省時又方便。</p>
+            </div>
+            {/* Step 3 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-gray-900 font-bold text-lg mb-4">3</div>
+              <h3 className="text-xl font-semibold mb-2">自動計算紀錄</h3>
+              <p className="text-gray-300 text-sm">系統自動幫你算好找零並儲存紀錄，立即查看戰績，輕鬆達標！</p>
+            </div>
+          </div>
+        </section>
+        {/* Testimonials Section */}
+        <section className="px-6 py-12 md:py-16 bg-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-8">外送員怎麼說</h2>
+          <div className="space-y-6 max-w-xl mx-auto">
+            {/* Testimonial 1 */}
+            <div className="bg-gray-800/70 border border-gray-700 rounded-2xl p-4 backdrop-blur-md shadow-md">
+              <p className="text-gray-300 leading-relaxed">「以前每次接單都在算錢，熊貓助手讓我 1 秒輸入金額，瞬間提升效率，再也不怕算錯！」</p>
+              <div className="mt-2 flex items-center justify-end">
+                <span className="text-sm font-medium text-emerald-400">阿輝</span>
+                <span className="ml-2 text-xs text-gray-500">外送員</span>
+              </div>
+            </div>
+            {/* Testimonial 2 */}
+            <div className="bg-gray-800/70 border border-gray-700 rounded-2xl p-4 backdrop-blur-md shadow-md">
+              <p className="text-gray-300 leading-relaxed">「懸浮窗真的超方便，+50 / +100 快捷鍵讓我完全不需要切換 App，手速快很多。」</p>
+              <div className="mt-2 flex items-center justify-end">
+                <span className="text-sm font-medium text-emerald-400">小美</span>
+                <span className="ml-2 text-xs text-gray-500">外送員</span>
+              </div>
+            </div>
+            {/* Testimonial 3 */}
+            <div className="bg-gray-800/70 border border-gray-700 rounded-2xl p-4 backdrop-blur-md shadow-md">
+              <p className="text-gray-300 leading-relaxed">「每天都能看到自己的收入和進度，達標更有動力，完全是我的神隊友 📈」</p>
+              <div className="mt-2 flex items-center justify-end">
+                <span className="text-sm font-medium text-emerald-400">阿民</span>
+                <span className="ml-2 text-xs text-gray-500">外送員</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Footer */}
+        <footer className="mt-auto px-6 py-6 bg-gray-800 border-t border-gray-700 text-sm text-gray-400">
+          <div className="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto gap-y-2">
+            <div>© 2026 熊貓助手</div>
+            <div className="flex space-x-4">
+              <span>版本 V1.3.3</span>
+              <a href="#" className="hover:text-emerald-400 transition-colors">聯絡我們</a>
+              <a href="#" className="hover:text-emerald-400 transition-colors">問題回報</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    );
+
+    // Mount the app
+    ReactDOM.render(<PandaAssistantLanding />, document.getElementById('root'));
+  </script>
+</body>
+</html>
