@@ -1,186 +1,302 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>熊貓跑單輔助 | 外送員跑單工具</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊貓跑單輔助 App - 外送員專屬實戰神器</title>
+    <!-- 引入 Tailwind CSS 進行快速排版 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- 設定專屬品牌色與變化 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#D70F64', // Foodpanda 主色
+                        dark: '#333333',  // 深灰文字
+                        light: '#F3F4F6'  // 淺灰背景
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', 'Microsoft JhengHei', sans-serif; color: #333333; }
+        .smooth-scroll { scroll-behavior: smooth; }
+        /* 隱藏 details 預設的箭頭 */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
 </head>
-<body class="bg-pink-50 text-gray-900 antialiased">
-  <!-- Hero section -->
-  <header class="bg-[#D70F64] text-white py-16 px-4 text-center">
-    <h1 class="text-5xl font-extrabold tracking-tight">熊貓跑單輔助</h1>
-    <p class="mt-4 text-xl max-w-3xl mx-auto">
-      專為外送員打造的全方位跑單工具，從接單評估、跑單管理到戰績分析與成本追蹤，幫你輕鬆掌握每趟配送的價值。
-    </p>
-    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-      <a
-        href="./downloads/熊貓跑單輔助.apk"
-        class="bg-white text-[#D70F64] font-semibold py-3 px-8 rounded-full shadow hover:bg-pink-100 hover:text-[#C60E5E] transition"
-      >
-        立即下載 APK
-      </a>
-    </div>
-  </header>
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
-    <!-- Features section -->
-    <section>
-      <h2 class="text-3xl font-bold text-center mb-8">核心特色</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <!-- Feature card 1 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">1</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">接單收益評估</h3>
-          <p class="text-gray-700 text-sm">快速計算每分鐘收益、成本與風險，幫助你做出更明智的接單決策。</p>
+<body class="bg-white smooth-scroll antialiased">
+
+    <!-- 導覽列 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-bold text-xl text-brand flex items-center gap-2">
+                <i class="fa-solid fa-motorcycle"></i> 熊貓跑單輔助
+            </div>
+            <a href="#download" class="bg-brand text-white px-5 py-2 rounded-full font-bold hover:bg-pink-700 transition text-sm">
+                免費下載
+            </a>
         </div>
-        <!-- Feature card 2 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">2</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">多種評估情境</h3>
-          <p class="text-gray-700 text-sm">支援單筆、疊單與夾單三種模式，依照情境調整最佳策略。</p>
+    </nav>
+
+    <!-- 首頁第一屏 (Hero Section) -->
+    <header class="max-w-6xl mx-auto px-4 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10">
+        <div class="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left">
+            <div class="inline-block bg-pink-100 text-brand font-bold px-3 py-1 rounded-full text-sm self-center md:self-start">
+                <i class="fa-solid fa-shield-check text-brand mr-1"></i> 專為外送員設計的實戰工具
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-dark">
+                不僅是記帳<br>
+                <span class="text-brand">更是你的接單大腦</span>
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                整合算單評估、背景 HUD、疊單/夾單管理、訊息範本、戰績統計與成本淨利追蹤。告別憑感覺跑單，精準掌握每分鐘真實收益！
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-2 justify-center md:justify-start">
+                <a href="#download" class="bg-brand text-white text-center px-8 py-4 rounded-lg font-bold text-lg hover:bg-pink-700 shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-android text-xl"></i> 下載 APK 安裝檔
+                </a>
+                <a href="#features" class="bg-gray-100 text-dark text-center px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-200 transition flex items-center justify-center gap-2">
+                    功能介紹
+                </a>
+            </div>
         </div>
-        <!-- Feature card 3 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">3</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">跑單管理工具</h3>
-          <p class="text-gray-700 text-sm">跑單中可管理站點、里程校正、找零與夾單操作，操作集中不分心。</p>
+        
+        <!-- App 手機畫面示意區 -->
+        <div class="w-full md:w-1/2 flex justify-center">
+            <img src="./website-assets/calculator-idle-evaluation.png" alt="算單評估畫面" class="w-72 rounded-[2rem] border-[6px] border-gray-800 shadow-2xl object-cover">
         </div>
-        <!-- Feature card 4 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">4</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">背景懸浮 HUD</h3>
-          <p class="text-gray-700 text-sm">切換其他 App 仍掌握即時收益資訊，懸浮顯示更直覺。</p>
+    </header>
+
+    <!-- 核心賣點條列 -->
+    <section id="features" class="bg-light py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">為什麼你需要熊貓跑單輔助？</h2>
+                <div class="w-16 h-1 bg-brand mx-auto rounded"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-magnifying-glass-dollar text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">接單前預判風險</p><p class="text-gray-600">接單前先看每分鐘收益與風險，不再被表面總金額騙了。</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-layer-group text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">支援複雜情境</p><p class="text-gray-600">完美支援單筆、疊單、夾單三種評估情境，重新估算效益。</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-route text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">跑單直接管理</p><p class="text-gray-600">跑單中可直接管理站點、里程校正、找零與快速新增夾單。</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-window-restore text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">背景 HUD 顯示</p><p class="text-gray-600">退到背景或看導航時，仍可透過懸浮 HUD 持續查看即時效益。</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-comment-dots text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">內建實用工具</p><p class="text-gray-600">內建訊息範本、戰績統計、每日存檔與 CSV/JSON 匯出功能。</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm"><i class="fa-solid fa-calculator text-brand text-2xl mb-3"></i><p class="font-bold text-lg mb-2">精算真實淨利</p><p class="text-gray-600">依據你的車種與成本模型自動估算淨利，精準計算時間成本。</p></div>
+            </div>
         </div>
-        <!-- Feature card 5 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">5</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">戰績與匯出</h3>
-          <p class="text-gray-700 text-sm">內建戰績統計，每日存檔並支援 CSV/JSON 格式匯出，方便分析與備份。</p>
-        </div>
-        <!-- Feature card 6 -->
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <div class="flex items-center justify-center mb-4">
-            <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#D70F64] text-white text-lg">6</span>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">淨利預測</h3>
-          <p class="text-gray-700 text-sm">依車種與成本模型估算每趟的淨利，讓你真正了解跑單的價值。</p>
-        </div>
-      </div>
     </section>
-    <!-- Screenshots section -->
-    <section>
-      <h2 class="text-3xl font-bold text-center mb-8">介面預覽</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Screenshot 1 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/calculator-idle-evaluation.png" alt="算單頁待機評估畫面" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">待機算單頁：輸入總運費與單數，即可看到時間效益與成本拆解。</figcaption>
-        </figure>
-        <!-- Screenshot 2 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/calculator-running.png" alt="跑單中主畫面" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">跑單中介面：顯示站點、本站時間與全趟收入，操作集中在一頁。</figcaption>
-        </figure>
-        <!-- Screenshot 3 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/queue-running.png" alt="任務佇列頁" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">任務佇列：查看待送站點、預計收入與操作。</figcaption>
-        </figure>
-        <!-- Screenshot 4 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/messages-templates.png" alt="訊息範本頁" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">訊息範本：快速建立常用對客與對平台範本。</figcaption>
-        </figure>
-        <!-- Screenshot 5 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/history-dashboard.png" alt="戰績頁總覽" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">戰績頁：查看每日與月份收入、成本、淨利、里程。</figcaption>
-        </figure>
-        <!-- Screenshot 6 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/settings-overview.png" alt="設定頁" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">設定頁：管理每日目標、車輛成本、班次與 HUD 等。</figcaption>
-        </figure>
-        <!-- Screenshot 7 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/settings-hud-controls.png" alt="HUD 設定區塊" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">HUD 設定：調整懸浮 HUD 版型、大小與輸入模式。</figcaption>
-        </figure>
-        <!-- Screenshot 8 -->
-        <figure class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-          <img src="./website-assets/hud-background-overlay.png" alt="背景 HUD 示意" class="w-full h-auto">
-          <figcaption class="p-4 text-sm text-gray-600">背景 HUD：退到背景仍能掌握即時收益資訊。</figcaption>
-        </figure>
-      </div>
+
+    <!-- 深度功能介紹：算單頁 -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 flex justify-center order-2 md:order-1">
+                <img src="./website-assets/calculator-idle-evaluation.png" alt="算單頁待機評估畫面" class="w-64 rounded-2xl shadow-xl">
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2">
+                <div class="inline-block bg-pink-100 text-brand font-bold px-3 py-1 rounded-full text-sm mb-4">核心入口</div>
+                <h2 class="text-3xl font-bold text-dark mb-4">待機算單：一秒判斷該不該接</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">算單頁是整個程式的主入口。直接輸入總運費、切換單數，立即看到這趟的時間效益與成本拆解。</p>
+                <ul class="space-y-3 text-gray-600">
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>快捷切換：</strong> 1 單 / 2 疊單 / 3 疊單一鍵切換。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>成本拆解：</strong> 隱藏里程費反推，成本與固定費一目了然。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>黑名單防護：</strong> 可輸入地址或姓名，即時檢查是否為奧客。</li>
+                </ul>
+            </div>
+        </div>
     </section>
-    <!-- Getting Started section -->
-    <section>
-      <h2 class="text-3xl font-bold text-center mb-8">入門指南</h2>
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">第一次安裝</h3>
-          <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-            <li>到設定頁設定每日目標與車輛成本。</li>
-            <li>填入車輛固定成本與每公里耗材。</li>
-            <li>開啟背景 HUD 與定位權限。</li>
-            <li>整理常用訊息範本與奧客名單。</li>
-          </ol>
+
+    <!-- 深度功能介紹：跑單中與佇列 -->
+    <section class="py-16 md:py-24 bg-light overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="inline-block bg-pink-100 text-brand font-bold px-3 py-1 rounded-full text-sm mb-4">實戰操作</div>
+                <h2 class="text-3xl font-bold text-dark mb-4">跑單與任務佇列管理</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">開始配送後，畫面轉為以「站點與即時收益」為核心的操作頁。你看到的不再只是接單評估，而是整趟配送的執行狀況。</p>
+                <ul class="space-y-3 text-gray-600">
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>動態數據：</strong> 即時顯示動態時薪、本站經過時間與全局淨利/公里。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>突發狀況處理：</strong> 中途接到新單可立刻用「夾單」補進，現金單也能用「找零」快速計算。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>佇列總覽：</strong> 任務佇列頁可集中查看待送站點順序、預計收入與後續操作。</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center gap-4">
+                <img src="./website-assets/calculator-running.png" alt="跑單中畫面" class="w-1/2 max-w-[200px] rounded-2xl shadow-xl">
+                <img src="./website-assets/queue-running.png" alt="任務佇列" class="w-1/2 max-w-[200px] rounded-2xl shadow-xl mt-8">
+            </div>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">待命接單</h3>
-          <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-            <li>在算單頁輸入總運費，切換單筆或疊單模式。</li>
-            <li>查看評估卡與每分鐘收益，決定是否接單。</li>
-            <li>必要時展開成本與利潤明細或黑名單檢查。</li>
-          </ol>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">開始配送</h3>
-          <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-            <li>跑單中畫面會顯示站點與本站時間。</li>
-            <li>使用送達本站、夾單、找零、里程校正等功能。</li>
-            <li>查看任務佇列了解後續站點與預計收入。</li>
-          </ol>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">背景使用</h3>
-          <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-            <li>退到背景後，HUD 持續顯示即時效益。</li>
-            <li>可直接在 HUD 輸入資料（完整版）。</li>
-          </ol>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">班次結束</h3>
-          <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-            <li>到戰績頁查看今日戰績與月度統計。</li>
-            <li>匯出每日存檔為 CSV 或 JSON 以便備份。</li>
-          </ol>
-        </div>
-      </div>
     </section>
-    <!-- Why choose section -->
-    <section>
-      <h2 class="text-3xl font-bold text-center mb-8">為什麼選擇熊貓跑單輔助？</h2>
-      <p class="max-w-3xl mx-auto text-gray-700 text-center">
-        市面上的記帳工具通常只關注收入本身，忽略了固定費、倍率、時間與里程對於淨利的影響。熊貓跑單輔助以外送員實際場景出發，將接單評估、跑單執行、背景 HUD、戰績分析與成本模型整合在一套簡單易用的流程內。讓你在每一趟配送前後都能看清楚值得與否，並把每天的成果留下來。
-      </p>
+
+    <!-- 深度功能介紹：背景 HUD -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 flex justify-center order-2 md:order-1 relative">
+                <img src="./website-assets/hud-background-overlay.png" alt="HUD 懸浮畫面" class="w-64 rounded-2xl shadow-xl border-4 border-gray-200">
+                <img src="./website-assets/settings-hud-controls.png" alt="HUD 設定" class="w-40 rounded-xl shadow-2xl absolute -bottom-6 -right-4 border-2 border-brand">
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2">
+                <div class="inline-block bg-pink-100 text-brand font-bold px-3 py-1 rounded-full text-sm mb-4">殺手級功能</div>
+                <h2 class="text-3xl font-bold text-dark mb-4">背景 HUD 懸浮視窗</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">退到背景看導航、回 Line 時，不需一直切換 App。透過懸浮 HUD 持續看見即時效益！</p>
+                <ul class="space-y-3 text-gray-600">
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>不干擾導航：</strong> 小巧的懸浮視窗，隨時掌握每分鐘收益狀態。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>高度客製：</strong> 支援完整版與精簡版切換，HUD 大小可透過滑桿自由調整（0% 到 100%）。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>直接輸入：</strong> 完整版 HUD 支援待命直接輸入模式，操作更快速。</li>
+                </ul>
+            </div>
+        </div>
     </section>
-  </main>
-  <footer class="bg-pink-100 py-6">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-600">
-      © 2026 熊貓跑單輔助. 本站僅供學習與展示使用。
-    </div>
-  </footer>
+
+    <!-- 深度功能介紹：戰績與設定 -->
+    <section class="py-16 md:py-24 bg-light overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <div class="inline-block bg-pink-100 text-brand font-bold px-3 py-1 rounded-full text-sm mb-4">資料管理</div>
+                <h2 class="text-3xl font-bold text-dark mb-4">戰績追蹤與車輛成本設定</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">這不是裝飾性設定，而是真正會影響你淨利估算的數據後台。一天結束後，把戰績留在手機裡。</p>
+                <ul class="space-y-3 text-gray-600">
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>今日/月度戰績：</strong> 統計總筆數、金額、里程、淨利、顧路時間與配送時薪。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>雙車成本模型：</strong> 支援設定主副兩台車輛，依造油耗/電費與每公里耗材算出「真實淨利」。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>匯出與備份：</strong> 每日存檔可隨時匯出為 CSV 或 JSON，方便自行做報表對帳。</li>
+                    <li><i class="fa-solid fa-check text-brand mr-2"></i> <strong>訊息範本：</strong> 內建對客/對平台訊息範本，自動代入訂單編號，不用再重複打字。</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center gap-4">
+                <img src="./website-assets/history-dashboard.png" alt="戰績總覽" class="w-1/2 max-w-[200px] rounded-2xl shadow-xl">
+                <img src="./website-assets/settings-overview.png" alt="設定與成本" class="w-1/2 max-w-[200px] rounded-2xl shadow-xl mt-8">
+            </div>
+        </div>
+    </section>
+
+    <!-- 邏輯說明區塊 -->
+    <section class="py-16 bg-dark text-white text-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6">為什麼「只看總運費」不夠？</h2>
+            <p class="text-gray-400 text-lg mb-8">總運費高不代表值得跑！時間、固定費、夾單風險、距離與車輛成本都會吃掉實際收益。</p>
+            <div class="bg-gray-800 p-8 rounded-2xl text-left border border-gray-700">
+                <h3 class="text-xl font-bold mb-4 text-brand">獨家接單評估邏輯</h3>
+                <p class="text-gray-300 mb-4">系統會依據單數自動帶入基準成本（單筆基礎成本、夾單基礎成本），並檢查以下高風險條件：</p>
+                <ul class="list-disc list-inside text-gray-400 space-y-2 mb-6 ml-2">
+                    <li>隱藏里程費小於等於 2 元</li>
+                    <li>夾單總額小於等於 33 元</li>
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-4 justify-between border-t border-gray-700 pt-6 mt-6">
+                    <div class="text-center"><span class="block text-2xl font-bold text-green-400">＞ 4.5 元/分</span><span class="text-sm text-gray-400">偏優質單</span></div>
+                    <div class="text-center"><span class="block text-2xl font-bold text-yellow-400">3.0 - 4.5 元/分</span><span class="text-sm text-gray-400">視情況接單</span></div>
+                    <div class="text-center"><span class="block text-2xl font-bold text-brand">＜ 3.0 元/分</span><span class="text-sm text-gray-400">偏不建議</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 區塊 -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">常見問題 (FAQ)</h2>
+                <div class="w-16 h-1 bg-brand mx-auto rounded"></div>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group bg-gray-50 rounded-lg border border-gray-200 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold p-5 text-dark">
+                        這套工具是一般的記帳 App 嗎？
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-600 border-t border-gray-200 mt-2">
+                        不是。它的重點是「跑單流程輔助」，記錄收入只是其中一部分。真正核心是接單評估、配送執行、背景 HUD、成本淨利與戰績回顧。
+                    </div>
+                </details>
+
+                <details class="group bg-gray-50 rounded-lg border border-gray-200 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold p-5 text-dark">
+                        如果我會切換去看導航、Line 或平台 App，還能用嗎？
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-600 border-t border-gray-200 mt-2">
+                        完全可以。背景 HUD 懸浮視窗的設計，就是為了讓你在切換其他 App 時，仍能清楚看到關鍵的每分鐘收益與目前站點資訊。
+                    </div>
+                </details>
+
+                <details class="group bg-gray-50 rounded-lg border border-gray-200 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold p-5 text-dark">
+                        我輸入的資料會不會不見或外洩？
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-600 border-t border-gray-200 mt-2">
+                        程式有本機保存與跑單快照設計。您的設定、範本、黑名單、每日存檔與進行中的跑單資料都會留在您的「裝置端內」，不需擔心外洩，隨時可匯出 CSV 或 JSON 備份。
+                    </div>
+                </details>
+
+                <details class="group bg-gray-50 rounded-lg border border-gray-200 cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold p-5 text-dark">
+                        為什麼安裝 App 時會需要「定位」與「懸浮視窗」權限？
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand"></i>
+                        </span>
+                    </summary>
+                    <div class="p-5 pt-0 text-gray-600 border-t border-gray-200 mt-2">
+                        「定位與背景定位」是用來支援跑單中的里程追蹤、全局淨利/公里計算。「懸浮視窗」則是開啟背景 HUD 必須的權限。這些都是為了實戰需求而設計的必要權限。
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- APK 安裝教學區 -->
+    <section id="install-guide" class="py-16 bg-light">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="border-l-4 border-brand pl-6 mb-10">
+                <h2 class="text-2xl font-bold text-dark mb-2">Android APK 安裝步驟</h2>
+                <p class="text-gray-500">本程式非 Google Play 上架軟體，請按照以下步驟安心安裝。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold mb-4">1</div>
+                    <h4 class="font-bold mb-2">下載 APK 檔案</h4>
+                    <p class="text-sm text-gray-600">點擊下方下載按鈕，將安裝檔儲存至您的 Android 手機中。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 border-t-4 border-t-brand">
+                    <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold mb-4">2</div>
+                    <h4 class="font-bold mb-2">允許未知來源安裝</h4>
+                    <p class="text-sm text-gray-600">開啟檔案時若遭系統阻擋，請至手機「設定」，開啟「<span class="text-brand">允許這個來源的應用程式</span>」。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold mb-4">3</div>
+                    <h4 class="font-bold mb-2">授權必要權限</h4>
+                    <p class="text-sm text-gray-600">開啟程式後，請依提示開啟「懸浮視窗」與「精準定位」權限即可開始算單。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部下載行動呼籲 -->
+    <section id="download" class="bg-dark text-white py-20 text-center px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">準備好把跑單流程數據化了嗎？</h2>
+        <p class="text-gray-400 mb-10 text-lg max-w-2xl mx-auto">立刻免費下載安裝，把複雜的心算與記錄交給程式，你只需專注騎車與安全送餐。</p>
+        
+        <!-- 下載連結：連至版本化 APK 檔案，因應使用者需求不顯示版本號 -->
+        <a href="./downloads/熊貓跑單輔助.apk" class="inline-block bg-brand text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-pink-700 shadow-xl transition mb-4">
+            <i class="fa-brands fa-android text-2xl mr-2 align-middle"></i> 免費下載熊貓助手 APK
+        </a>
+        <p class="text-sm text-gray-500 mt-2">當前版本：最新版本 ｜ 支援 Android 手機</p>
+    </section>
+
+    <!-- 頁尾聲明 -->
+    <footer class="bg-gray-900 text-gray-500 py-8 text-center text-sm px-4">
+        <p class="mb-2">© 2026 熊貓跑單輔助 開發團隊. All rights reserved.</p>
+        <p class="text-xs max-w-3xl mx-auto">免責聲明：本輔助程式由獨立開發者製作，非 foodpanda 官方應用程式。計算數據與淨利評估僅供參考，實際收入與規範以官方最終結算為準。</p>
+    </footer>
+
 </body>
 </html>
